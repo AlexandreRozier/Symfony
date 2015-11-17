@@ -1,0 +1,93 @@
+<?php
+
+namespace Test\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * ArticleCategorie
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Test\BlogBundle\Entity\ArticleCategorieRepository")
+ */
+class ArticleCategorie
+{
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Categorie",inversedBy="articles")
+     */
+    private $idCategories;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Article",inversedBy="categories")
+     */
+    private $idArticles;
+
+
+    /**
+     * Set idCategories
+     *
+     * @param \Test\BlogBundle\Entity\Categorie $idCategories
+     *
+     * @return ArticleCategorie
+     */
+    public function setIdCategories(\Test\BlogBundle\Entity\Categorie $idCategories = null)
+    {
+        $this->idCategories = $idCategories;
+
+        return $this;
+    }
+
+    /**
+     * Get idCategories
+     *
+     * @return \Test\BlogBundle\Entity\Categorie
+     */
+    public function getIdCategories()
+    {
+        return $this->idCategories;
+    }
+
+    /**
+     * Set idArticles
+     *
+     * @param \Test\BlogBundle\Entity\Article $idArticles
+     *
+     * @return ArticleCategorie
+     */
+    public function setIdArticles(\Test\BlogBundle\Entity\Article $idArticles = null)
+    {
+        $this->idArticles = $idArticles;
+
+        return $this;
+    }
+
+    /**
+     * Get idArticles
+     *
+     * @return \Test\BlogBundle\Entity\Article
+     */
+    public function getIdArticles()
+    {
+        return $this->idArticles;
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}

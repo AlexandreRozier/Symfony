@@ -1,0 +1,38 @@
+
+
+blog_accueil:
+    path: /{page}
+    defaults: { _controller: TestBlogBundle:Blog:index, page: 1 }
+    requirements:
+      page: \d*
+
+blog_liste:
+  path: /liste
+  defaults: { _controller: TestBlogBundle:Blog:liste}
+
+blog_categorySearch:
+  path: /category
+  defaults: { _controller: TestBlogBundle:Blog:categorySearch}
+
+blog_voir:
+    path: /article/{id}
+    defaults: { _controller: TestBlogBundle:Blog:voir}
+    requirements:
+      id: \d+
+
+blog_ajouter:
+    path: /ajouter
+    defaults: { _controller: TestBlogBundle:Blog:ajouter}
+
+
+blog_modifier:
+    path: /modifier/{id}
+    defaults: { _controller: TestBlogBundle:Blog:modifier}
+    requirements:
+      id: \d+
+
+blog_supprimer:
+    path: /supprimer/{id}
+    defaults: {_controller: TestBlogBundle:Blog:supprimer}
+    requirements:
+      id: \d+

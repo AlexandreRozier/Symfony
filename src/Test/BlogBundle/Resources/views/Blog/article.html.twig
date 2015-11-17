@@ -1,0 +1,40 @@
+{% set isAccueil = isAccueil|default(false) %}
+
+{{ article.publication }}
+
+<h2>
+    {% if isAccueil %}
+        <a href="{{path('blog_voir',{'id':article.id})}}">
+            {{article.titre}}
+        </a>
+    {% else %}
+        {{article.titre}}
+    {% endif %}
+</h2>
+
+<i>
+    Le {{article.date|date('d/m/Y')}}, par {{article.auteur}}.
+</i>
+
+{% if article.image is not null %}
+
+    <img src="{{ asset(article.image.webPath) }}"
+         alt="{{ article.image.alt }}"/>
+{% endif %}
+
+<div class="well">
+    {{article.contenu|raw}}
+</div>
+
+{% if article.categories.count > 0 %}
+    <div class="well well-small">
+        <p>
+            <i>
+                Catégories :
+                {% for categorie in article.categories %}
+                    {{categorie.nom}}{% if not loop.last %}, {% endif %}
+                {% endfor %}
+            </i>
+        </p>
+    </div>
+{% endif %}

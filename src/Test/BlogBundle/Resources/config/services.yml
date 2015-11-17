@@ -1,0 +1,19 @@
+services:
+  test_blog.antispam:
+    class: Test\BlogBundle\Antispam\TestAntispam
+    arguments: [@mailer,%locale%,3]
+    tags:
+        - { name: twig.extension }
+
+  testblog.validator.antiflood:
+     class: Test\BlogBundle\Validator\AntiFloodValidator
+     arguments: [@request, @doctrine.orm.entity_manager]
+     scope: request
+     tags:
+        - { name: validator.constraint_validator, alias: testblog_antiflood }
+
+  test.registration_listener:
+      class: Test\UserBundle\EventListener\RegistrationListener
+      argumentss: []
+      tags:
+          - { name: kernel.event_subscriber }

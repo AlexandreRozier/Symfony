@@ -1,0 +1,42 @@
+<?php
+
+namespace Test\BlogBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * GangCategory
+ *
+ * @ORM\Table()
+ * @ORM\Entity(repositoryClass="Test\BlogBundle\Entity\GangCategoryRepository")
+ */
+class GangCategory
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var ArrayCollection $gangs
+     *
+     * @ORM\ManyToMany(targetEntity="Gang", mappedBy="categories")
+     */
+    private $gangs;
+
+
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
+

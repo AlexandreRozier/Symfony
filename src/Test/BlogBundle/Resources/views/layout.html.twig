@@ -1,0 +1,16 @@
+{% extends "::layout.html.twig" %}
+{% block title %}
+  Blog
+{% endblock %}
+{% block body %}
+
+  <h1>Partie Blog</h1>
+  {% for flashMessage in app.session.flashbag.get('info') %}
+    <div class="alert alert-info">
+      {{ flashMessage }}
+    </div>
+  {% endfor %}
+  <hr>
+  {% block testblog_body %}
+  {% endblock %}
+{% endblock %}

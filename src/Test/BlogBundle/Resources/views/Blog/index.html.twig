@@ -1,0 +1,16 @@
+{% extends "TestBlogBundle::layout.html.twig" %}
+{% block title %}
+  Accueil - {{parent()}}
+{% endblock %}
+
+{% block testblog_body %}
+  <h2>Liste des articles</h2>
+
+  <ul id="articles-container">
+    {% for article in articles %}
+      {% include 'TestBlogBundle:Blog:article.html.twig' with{'isAccueil':true}%}
+    {% else %}
+      <li>Pas (encore !) d'articles</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

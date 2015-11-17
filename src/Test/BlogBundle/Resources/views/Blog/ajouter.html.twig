@@ -1,0 +1,14 @@
+{% extends 'TestBlogBundle::layout.html.twig' %}
+
+{% block title %}
+  Ajouter un article - {{parent()}}
+{% endblock %}
+
+{% block testblog_body %}
+
+  <h2>Ajouter un article</h2>
+  
+  {% include 'TestBlogBundle:Blog:formulaire.html.twig' with {'target':'blog_ajouter','id':null} %}
+
+
+{% endblock %}

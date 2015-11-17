@@ -1,0 +1,7 @@
+
+
+main_index:
+    path: /
+    defaults: { _controller: TestMainBundle:Main:index }
+
+

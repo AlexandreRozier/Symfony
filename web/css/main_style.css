@@ -1,0 +1,25 @@
+
+#main_container{
+    background-image: url(../../src/web/drawables/background.jpg) ;
+}
+
+
+
+#brand-container{
+    text-align: center;
+    font-size: 1.5em;
+    padding-bottom: 5%;
+}
+
+#articles-container{
+ display: inline;
+}
+
+.btn-block{
+    padding-top: 3%;
+}
+
+.navbar-grayed{
+    padding-top: 2%;
+    padding-bottom: 2% ;
+}

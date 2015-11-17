@@ -1,0 +1,76 @@
+<div class="nav  nav-pills nav-stacked well">
+
+    <div id="brand-container">
+        <a class="navbar-brand" href="#">Web-o-matic</a>
+    </div>
+
+
+
+
+    <li class="text-center">
+
+        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+            Connecté en tant que {{ app.user.username }}
+            <br/>
+            <div class="btn-block">
+                <a class="btn btn-info btn-block" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            </div>
+
+        {% else %}
+            Vous n'êtes pas connecté.
+
+            <div class="btn-block">
+                <a class="btn btn-info btn-block" href="{{ path('fos_user_security_login') }}">Connexion</a>
+            </div>
+
+        {% endif %}
+    </li>
+    <li>
+        <a href="{{path('main_index')}}">Accueil</a>
+
+    </li>
+
+    <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Partie Blog<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+            <li><a href="{{ path('blog_accueil') }}">Accueil du blog</a></li>
+
+            <li class="nav-header">
+                Fonctions
+            </li>
+
+            <li >
+
+                {% if is_granted('ROLE_AUTEUR') %}
+
+                    <a href="{{path('blog_ajouter')}}">Ajouter un article</a>
+
+                {% else %}
+                    <a href="{{ path('fos_user_security_login') }}"> Vous devez être loggé pour accéder à ces fonctions.</a>
+
+                {% endif %}
+            </li>
+
+                {{ render(controller("TestBlogBundle:Blog:menu",{'articles_number':3})) }}
+
+
+        </ul>
+    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

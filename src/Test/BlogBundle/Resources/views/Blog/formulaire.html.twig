@@ -1,0 +1,31 @@
+<h3> Formulaire d'article</h3>
+<div class="well">
+  <form action="{{path(target,{'id':id})}}" method="post" {{form_enctype(form)}}>
+    {{form_errors(form)}}
+
+
+
+    <div>
+      {{form_label(form.titre,"Titre de l'aricle")}}
+      {{form_errors(form.titre)}}
+      {{form_widget(form.titre)}}
+    </div>
+
+
+    <div>
+      {{form_label(form.contenu,"Contenu de l'article")}}
+      {{form_errors(form.contenu)}}
+      {{form_widget(form.contenu)}}
+    </div>
+    <div>
+      {{form_label(form.categories,"Catégories")}}
+      {{form_errors(form.categories)}}
+      {{form_widget(form.categories)}}
+    </div>
+
+    {{form_rest(form)}}
+    <br/>
+      <input type="submit" class="btn btn-primary" />
+
+  </form>
+</div>
