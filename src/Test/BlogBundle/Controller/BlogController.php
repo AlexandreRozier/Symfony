@@ -14,6 +14,10 @@ use Test\BlogBundle\Form\CategoryHolderType;
 
 class BlogController extends Controller
 {
+    /**
+     * @param $page
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
     public function indexAction($page)
     {
         $articles = $this->getDoctrine()->getManager()
@@ -31,7 +35,7 @@ class BlogController extends Controller
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function categorySearchAction()
-    {git 
+    {
         $ch = new CategoryHolder();
         $form = $this->createForm(new CategoryHolderType, $ch);
 
@@ -42,14 +46,18 @@ class BlogController extends Controller
             if ($form->isValid()) {
 
                 $selected_categories = $form->get('categories')->getData();
+
                 $articles = array();
-                foreach ($selected_categories as $categorie){
-                $articles[] = $this->getDoctrine()->getRepository('TestBlogBundle:Article')->findByCategory($categorie);
+
+
+                    $articles[] = $this->getDoctrine()->getRepository('TestBlogBundle:Article')->findByCategory('symfony2');
+               /* foreach ($selected_categories as $categorie){
+                    $articles[] = $this->getDoctrine()->getRepository('TestBlogBundle:Article')->findByCategory($categorie);
 
                     return $this->render('TestBlogBundle:Blog:categorySearchResult.html.twig',array(
                         'articles'=>$articles
                     ));
-                }
+                }*/
 
 
             }
@@ -60,6 +68,9 @@ class BlogController extends Controller
             ));
     }
 
+    /**
+     *
+     */
     public function listeAction()
     {
         $listeArticles = $this->getDoctrine()->getManager()->getRepository('TestBlogBundle:Article')->getArticleAvecCommentaires();

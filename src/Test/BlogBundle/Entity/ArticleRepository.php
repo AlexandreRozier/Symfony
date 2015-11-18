@@ -65,11 +65,11 @@ class ArticleRepository extends \Doctrine\ORM\EntityRepository
     return $qb->getQuery()->getSingleResult();
   }
 
-    public function findByCategory($categorie)
+    public function findByCategory($category_name)
     {
         $qb = $this->createQueryBuilder('a');
-        $qb->join('a.categories','c')
-            ->where($qb->expr()->in('c.nom',$categorie));
+        $qb->innerJoin('a.categories','c')
+            ->where($qb->expr()->in('c.nom',$category_name));
 
 
 
