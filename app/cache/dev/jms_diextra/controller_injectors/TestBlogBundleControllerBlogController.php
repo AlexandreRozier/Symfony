@@ -11,8 +11,8 @@ class BlogController__JMSInjector
 {
     public static function inject($container) {
         require_once __DIR__ . '/../proxies/Test-BlogBundle-Controller-BlogController.php';
-        $a = new \JMS\AopBundle\Aop\InterceptorLoader($container, array('Test\\BlogBundle\\Controller\\BlogController' => array('ajouterAction' => array(0 => 'security.access.method_interceptor'))));
-        $instance = new \EnhancedProxy0c4acbc3_931ddbf738695c6df28af34aff96a5cc1a264802\__CG__\Test\BlogBundle\Controller\BlogController();
+        $a = new \JMS\AopBundle\Aop\InterceptorLoader($container, array('Test\\BlogBundle\\Controller\\BlogController' => array('ajouterAction' => array(0 => 'security.access.method_interceptor'), 'modifierAction' => array(0 => 'security.access.method_interceptor'), 'supprimerAction' => array(0 => 'security.access.method_interceptor'))));
+        $instance = new \EnhancedProxyeefb060b_931ddbf738695c6df28af34aff96a5cc1a264802\__CG__\Test\BlogBundle\Controller\BlogController();
         $instance->__CGInterception__setLoader($a);
         return $instance;
     }

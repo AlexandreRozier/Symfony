@@ -1,6 +1,6 @@
 <?php
 
-namespace EnhancedProxy0c4acbc3_931ddbf738695c6df28af34aff96a5cc1a264802\__CG__\Test\BlogBundle\Controller;
+namespace EnhancedProxyeefb060b_931ddbf738695c6df28af34aff96a5cc1a264802\__CG__\Test\BlogBundle\Controller;
 
 /**
  * CG library enhanced proxy class.
@@ -11,6 +11,24 @@ namespace EnhancedProxy0c4acbc3_931ddbf738695c6df28af34aff96a5cc1a264802\__CG__\
 class BlogController extends \Test\BlogBundle\Controller\BlogController
 {
     private $__CGInterception__loader;
+
+    public function supprimerAction($id)
+    {
+        $ref = new \ReflectionMethod('Test\\BlogBundle\\Controller\\BlogController', 'supprimerAction');
+        $interceptors = $this->__CGInterception__loader->loadInterceptors($ref, $this, array($id));
+        $invocation = new \CG\Proxy\MethodInvocation($ref, $this, array($id), $interceptors);
+
+        return $invocation->proceed();
+    }
+
+    public function modifierAction($id)
+    {
+        $ref = new \ReflectionMethod('Test\\BlogBundle\\Controller\\BlogController', 'modifierAction');
+        $interceptors = $this->__CGInterception__loader->loadInterceptors($ref, $this, array($id));
+        $invocation = new \CG\Proxy\MethodInvocation($ref, $this, array($id), $interceptors);
+
+        return $invocation->proceed();
+    }
 
     public function ajouterAction()
     {

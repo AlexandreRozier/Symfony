@@ -108,6 +108,7 @@ class BlogController extends Controller
                 $em = $this->getDoctrine()->getManager();
                 $em->persist($article);
                 $em->flush();
+                $this->addFlash('info','Article ajouté !');
 
                 return $this->render('TestBlogBundle:Blog:voir.html.twig',
                     array(
@@ -173,7 +174,7 @@ class BlogController extends Controller
 
                 $em->remove($article);
                 $em->flush();
-                $this->addFlash('info','Article supprimé');
+                $this->addFlash('danger','Article supprimé');
                 return $this->redirect($this->generateUrl('blog_accueil',array('page'=>1)));
             }
         }
