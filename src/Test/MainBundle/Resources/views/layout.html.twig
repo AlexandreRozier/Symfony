@@ -1,6 +1,6 @@
 {% extends "::layout.html.twig" %}
 {% block title %}
-  Blog
+{{ parent() }}
 {% endblock %}
 {% block body %}
 
@@ -11,6 +11,6 @@
     </div>
   {% endfor %}
   <hr>
-  {% block testblog_body %}
+  {% block testmain_body %}
   {% endblock %}
 {% endblock %}

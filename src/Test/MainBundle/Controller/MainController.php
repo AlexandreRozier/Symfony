@@ -13,4 +13,12 @@ class MainController extends Controller
     {
         return $this->render('TestMainBundle:Main:index.html.twig');
     }
+
+    public function redirectAction()
+    {
+
+
+        return $this->redirect('http://people.via.ecp.fr/~hx/');
+
+    }
 }

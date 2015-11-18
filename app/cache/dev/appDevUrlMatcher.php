@@ -136,6 +136,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Test\\MainBundle\\Controller\\MainController::indexAction',  '_route' => 'main_index',);
         }
 
+        // main_redirect
+        if (rtrim($pathinfo, '/') === '/redirect') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'main_redirect');
+            }
+
+            return array (  '_controller' => 'Test\\MainBundle\\Controller\\MainController::redirectAction',  '_route' => 'main_redirect',);
+        }
+
         if (0 === strpos($pathinfo, '/blog')) {
             // blog_accueil
             if (preg_match('#^/blog(?:/(?P<page>\\d*))?$#s', $pathinfo, $matches)) {

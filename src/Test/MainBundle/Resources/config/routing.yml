@@ -4,4 +4,9 @@ main_index:
     path: /
     defaults: { _controller: TestMainBundle:Main:index }
 
+main_redirect:
+    path: /redirect/
+    defaults: { _controller: TestMainBundle:Main:redirect}
+
+
 
