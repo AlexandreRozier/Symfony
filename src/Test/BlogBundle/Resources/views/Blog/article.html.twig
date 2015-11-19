@@ -12,9 +12,10 @@
     {% endif %}
 </h2>
 
-<i>
-    Le {{article.date|date('d/m/Y')}}, par {{article.auteur}}.
-</i>
+<div class="content-header">
+    Le <div class="date">{{article.date|date('d/m/Y')}}</div>, par <div class="emphasis">{{article.auteur}}</div>.
+</div>
+
 
 {% if article.image is not null %}
 
@@ -28,13 +29,13 @@
 
 {% if article.categories.count > 0 %}
     <div class="well well-small">
-        <p>
+
             <i>
-                Catégories :
+                <div class="emphasis"> Catégories :</div>
                 {% for categorie in article.categories %}
                     {{categorie.nom}}{% if not loop.last %}, {% endif %}
                 {% endfor %}
             </i>
-        </p>
+
     </div>
 {% endif %}

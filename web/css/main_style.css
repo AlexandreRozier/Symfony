@@ -1,6 +1,7 @@
 
 #main_container{
     background-image: url(../drawables/background.jpg) ;
+    background-repeat: round;
 }
 
 
@@ -12,9 +13,12 @@
 }
 
 #articles-container{
- display: inline;
+    display: inline;
 }
 
+/*
+* The classes
+*/
 .btn-block{
     padding-top: 3%;
 }
@@ -22,4 +26,23 @@
 .navbar-grayed{
     padding-top: 2%;
     padding-bottom: 2% ;
+}
+
+.emphasis
+{
+    font-weight: bold;
+    color:#1d75b3;
+    display: inline-block;
+}
+
+.date
+{
+    font-weight: bold;
+    color: #1d75b3;
+    display: inline;
+}
+.content-header
+{
+    padding-bottom: 1%;
+    font-style: italic;
 }
